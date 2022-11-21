@@ -1,0 +1,49 @@
+.biolink {
+    &-login {
+        display: flex;
+        justify-content: center;
+        background: black;
+        &__container {
+            background: white;
+            margin-top: 50px;
+            width: 400px;
+            height: 700px;
+            border-radius: 10px;
+        }
+        &__header {
+            text-align: center;
+            &-logo {
+                color: $biolink-primary;
+                margin-bottom: 30px;
+                margin-top: 50px;
+            }
+            h1 {
+                font-size: 24px;
+                font-weight: 500;
+                margin-top: 20px;
+                margin-bottom: 25px;
+            }
+        }
+        &__form {
+            width: 80%;
+            margin: auto;
+            p {
+                margin-top: 15px;
+                color: $biolink-primary;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.form-control {
+    border-width: 2px;
+    &::placeholder {
+        font-size: 40px;
+        color: $biolink-primary;
+    }
+    &:focus {
+        box-shadow: none;
+        border-color: $biolink-primary;
+    }
+}

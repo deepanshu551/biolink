@@ -1,0 +1,47 @@
+@import "variable";
+.biolink-container {
+    padding: 0 20rem 0 20rem;
+    @media (max-width: 1093px) {
+        padding: 0 5rem 0 5rem;
+    }
+    @media (max-width: 769px) {
+        padding: 0;
+    }
+}
+
+.biolink-hide {
+    @media (max-width: 426px) {
+        display: none;
+    }
+}
+
+.biolink--gap {
+    gap: 30rem;
+}
+
+.biolink-button {
+    width: 100%;
+    background: $biolink-primary;
+    color: white;
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 15px 0;
+}
+
+.biolink-visible {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+.biolink__button-primary {
+    border-color: $biolink-primary !important;
+    color: $biolink-primary;
+    font-size: 1.1rem;
+    &:hover {
+        background-color: $biolink-primary;
+        color: $biolink-white;
+        border-color: $biolink-white;
+    }
+}

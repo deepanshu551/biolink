@@ -1,0 +1,29 @@
+.biolink {
+    &-header {
+        &--modifier {
+            background-color: $biolink-white;
+            height: 5rem;
+            box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.22);
+            gap: 30px;
+        }
+        &__links {
+            &--modifier {
+                justify-content: space-between;
+            }
+        }
+        &__link {
+            &--modifier {
+                padding: 0.4rem 1rem !important;
+                font-size: 1.1rem;
+                color: inherit;
+                &:focus,
+                &:hover {
+                    color: $biolink-primary
+                }
+            }
+        }
+        &__brand {
+            color: $biolink-primary;
+        }
+    }
+}
