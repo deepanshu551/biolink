@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState,useCallback,useContext} from 'react'
 import '../../styles/index.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {Link,useHistory} from "react-router-dom";
 import {auth} from "../../base";
-import {signInWithEmailAndPassword} from "firebase/auth"
+import {signInWithEmailAndPassword} from "firebase/auth";
+
 export default function Login() {
 
   const [email,setEmail]=useState("");
@@ -19,7 +20,7 @@ setIsVisible(!isVisible);
 
   }
 
-  const onSubmitform=(e)=>{
+  const onSubmitform=useCallback((e)=>{
     e.preventDefault();
 
 if(email=="" || password=="" ){
@@ -30,7 +31,6 @@ else{
   setSubmitDisable(true)
   signInWithEmailAndPassword(auth,email,password).then(res=>{
     setSubmitDisable(false)
-
     history.push("/")
   }).catch(err=>{
     setSubmitDisable(false)
@@ -38,8 +38,7 @@ else{
    setErrorMsg(err.message)
   })
 }
-  }
-
+  })
   return (
     <div className="biolink-login">
       <div className="biolink-login__container">
@@ -87,7 +86,9 @@ else{
           <p className="biolink-login__form--forgot">Forgot passwor?</p>
           <p>Don't have account? <Link to="/register" className="biolink-cta">Create One Here </Link></p>
           <p style={{color:"red"}}>{errorMsg&&"error in login"}</p>
-         <button className="btn biolink-button" disabled={submitDisable} type='submit'>Login</button>
+      <button className="btn biolink-button" disabled={submitDisable} type='submit'>Login</button>
+
+  
         </form>
       </div>
 
