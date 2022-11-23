@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import {AuthProvider} from "./Auth"
 import PrivateRoute from "./PrivateRoute"
 import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 
 const App=()=> {
@@ -19,9 +20,10 @@ const App=()=> {
            
             {/* <PrivateRoute exact path="/hero" component={Hero}></PrivateRoute> */}
             
-            <Route exact path="/" component={Home}></Route>
+            <PrivateRoute exact path="/" component={Home}></PrivateRoute>
            
             <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/register" component={Register}></Route>
         </Switch>
         </Router>
            
