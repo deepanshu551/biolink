@@ -15,6 +15,11 @@
     }
 }
 
+.biolink-cta {
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .biolink--gap {
     gap: 30rem;
 }
@@ -26,6 +31,10 @@
     margin-top: 20px;
     font-size: 1rem;
     padding: 15px 0;
+    &:hover {
+        background: rgb(234, 88, 59);
+        color: white;
+    }
 }
 
 .biolink-visible {
@@ -33,6 +42,21 @@
     top: 50%;
     transform: translateY(-50%);
     right: 20px;
+    cursor: pointer;
+}
+
+.biolink-invisible {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.biolink-error {
+    color: red;
+    margin-bottom: 8px;
 }
 
 .biolink__button-primary {

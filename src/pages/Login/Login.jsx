@@ -1,8 +1,44 @@
-import React from 'react'
+import React,{useState,useCallback,useContext} from 'react'
 import '../../styles/index.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {Link,useHistory} from "react-router-dom";
+import {auth} from "../../base";
+import {signInWithEmailAndPassword} from "firebase/auth";
+
 export default function Login() {
+
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+const [isVisible,setIsVisible]=useState(false);
+const [isError,setIsError]=useState(false);
+const [submitDisable,setSubmitDisable]=useState(false);
+const [errorMsg,setErrorMsg]=useState("");
+const history=useHistory();
+  const VisibilityOn=(e)=>{
+setIsVisible(!isVisible);
+
+  }
+
+  const onSubmitform=useCallback((e)=>{
+    e.preventDefault();
+
+if(email=="" || password=="" ){
+  
+  setIsError(true);
+}
+else{
+  setSubmitDisable(true)
+  signInWithEmailAndPassword(auth,email,password).then(res=>{
+    setSubmitDisable(false)
+    history.push("/")
+  }).catch(err=>{
+    setSubmitDisable(false)
+
+   setErrorMsg(err.message)
+  })
+}
+  })
   return (
     <div className="biolink-login">
       <div className="biolink-login__container">
@@ -35,21 +71,24 @@ export default function Login() {
            <h1>Welcome</h1>
 <p>Login in to usebiolink</p>
         </div>
-        <form className="biolink-login__form">
+        <form className="biolink-login__form" onSubmit={onSubmitform}>
 
-      
+        {isError&&<b className="biolink-error">All fields are required</b>}
           <div className="form-floating mb-3">
-            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
+            <input onChange={(e)=>{setEmail(e.target.value)}} value={email} type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Email address</label>
           </div>
           <div className="form-floating">
-          <input type="password" className="form-control" id="floatingPassword" placeholder="Password"/>
+          <input type={isVisible?"text":"password"}onChange={(e)=>{setPassword(e.target.value)}} value={password} className="form-control" id="floatingPassword" placeholder="Password"/>
             <label for="floatingPassword">Password</label>
-            <div className="biolink-visible"><VisibilityIcon /></div>
+            <div className="biolink-visible" onClick={(e)=>VisibilityOn(e)}>{isVisible?<VisibilityOffIcon />:<VisibilityIcon />}</div>
           </div>
-          <p>Forgot passwor?</p>
-         
-         <button className="btn biolink-button">Login</button>
+          <p className="biolink-login__form--forgot">Forgot passwor?</p>
+          <p>Don't have account? <Link to="/register" className="biolink-cta">Create One Here </Link></p>
+          <p style={{color:"red"}}>{errorMsg&&"error in login"}</p>
+      <button className="btn biolink-button" disabled={submitDisable} type='submit'>Login</button>
+
+  
         </form>
       </div>
 
