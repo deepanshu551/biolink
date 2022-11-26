@@ -3,9 +3,12 @@
         display: flex;
         justify-content: center;
         background: black;
+        @media (max-width: 426px) {
+            background: white;
+        }
         &__container {
             background: white;
-            margin-top: 50px;
+            margin: 50px 0;
             width: 400px;
             height: 700px;
             border-radius: 10px;
@@ -27,7 +30,7 @@
         &__form {
             width: 80%;
             margin: auto;
-            p {
+            &--forgot {
                 margin-top: 15px;
                 color: $biolink-primary;
                 font-weight: 500;

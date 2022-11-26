@@ -27,6 +27,11 @@ body {
   }
 }
 
+.biolink-cta {
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .biolink--gap {
   gap: 30rem;
 }
@@ -39,12 +44,31 @@ body {
   font-size: 1rem;
   padding: 15px 0;
 }
+.biolink-button:hover {
+  background: rgb(234, 88, 59);
+  color: white;
+}
 
 .biolink-visible {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 20px;
+  cursor: pointer;
+}
+
+.biolink-invisible {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.biolink-error {
+  color: red;
+  margin-bottom: 8px;
 }
 
 .biolink__button-primary {
@@ -345,9 +369,14 @@ body {
   justify-content: center;
   background: black;
 }
+@media (max-width: 426px) {
+  .biolink-login {
+    background: white;
+  }
+}
 .biolink-login__container {
   background: white;
-  margin-top: 50px;
+  margin: 50px 0;
   width: 400px;
   height: 700px;
   border-radius: 10px;
@@ -370,7 +399,7 @@ body {
   width: 80%;
   margin: auto;
 }
-.biolink-login__form p {
+.biolink-login__form--forgot {
   margin-top: 15px;
   color: rgb(241, 104, 76);
   font-weight: 500;
