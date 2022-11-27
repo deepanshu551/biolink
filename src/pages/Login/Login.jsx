@@ -5,7 +5,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {Link,useHistory} from "react-router-dom";
 import {auth} from "../../base";
 import {signInWithEmailAndPassword} from "firebase/auth";
-
+import toast from "react-hot-toast"
 export default function Login() {
 
   const [email,setEmail]=useState("");
@@ -31,6 +31,7 @@ else{
   setSubmitDisable(true)
   signInWithEmailAndPassword(auth,email,password).then(res=>{
     setSubmitDisable(false)
+    toast.success("Welcome to BioLink")
     history.push("/")
   }).catch(err=>{
     setSubmitDisable(false)
@@ -78,12 +79,12 @@ else{
             <input onChange={(e)=>{setEmail(e.target.value)}} value={email} type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Email address</label>
           </div>
-          <div className="form-floating">
+          <div className="form-floating mb-3">
           <input type={isVisible?"text":"password"}onChange={(e)=>{setPassword(e.target.value)}} value={password} className="form-control" id="floatingPassword" placeholder="Password"/>
             <label for="floatingPassword">Password</label>
-            <div className="biolink-visible" onClick={(e)=>VisibilityOn(e)}>{isVisible?<VisibilityOffIcon />:<VisibilityIcon />}</div>
+            <div className="biolink-visible" tabIndex={0} aria-label="show" on onClick={(e)=>VisibilityOn(e)}>{isVisible?<VisibilityOffIcon />:<VisibilityIcon />}</div>
           </div>
-          <p className="biolink-login__form--forgot">Forgot passwor?</p>
+          <Link to="/forgot" className="biolink-cta biolink-login__form--forgot">Forgot passwor?</Link>
           <p>Don't have account? <Link to="/register" className="biolink-cta">Create One Here </Link></p>
           <p style={{color:"red"}}>{errorMsg&&"error in login"}</p>
       <button className="btn biolink-button" disabled={submitDisable} type='submit'>Login</button>
