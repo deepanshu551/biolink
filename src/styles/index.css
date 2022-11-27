@@ -305,7 +305,6 @@ a:-webkit-any-link:focus-visible {
 .biolink-main__component-content-image {
   width: 90px;
   height: 90px;
-  border-radius: 50%;
   margin: auto;
 }
 .biolink-main__component-content-image img {
@@ -313,6 +312,7 @@ a:-webkit-any-link:focus-visible {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 50%;
 }
 .biolink-main__component-content-info {
   text-align: center;

@@ -3,9 +3,11 @@ import '../../styles/index.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {Link,useHistory} from "react-router-dom";
-import {auth} from "../../base";
-import toast from "react-hot-toast"
-import {createUserWithEmailAndPassword,updateProfile} from "firebase/auth"
+import {auth,db} from "../../base";
+import {ref,set} from "firebase/database";
+import toast from "react-hot-toast";
+import {uid} from "uid";
+import {createUserWithEmailAndPassword,updateProfile} from "firebase/auth";
 export default function Register() {
 
     const [userName,setUserName]=useState("");
@@ -23,7 +25,7 @@ setIsVisible(!isVisible);
 
   const onSubmitform=(e)=>{
     e.preventDefault();
-
+const uuid=uid();
 
 if(email=="" || password=="" || userName==="" ){
   
@@ -31,7 +33,7 @@ if(email=="" || password=="" || userName==="" ){
 }
 else{
     setSubmitDisable(true);
-  createUserWithEmailAndPassword(auth,email,password).then(res=>{
+    createUserWithEmailAndPassword(auth,email,password).then(res=>{
     const user=res.user
     updateProfile(user,{
         displayName:userName
@@ -45,6 +47,11 @@ else{
     setSubmitDisable(false);
     setErrorMsg(err.message);
 
+  })
+  set(ref(db,`/${uuid}`),{
+    userName,
+    email,
+    password
   })
 }
   }

@@ -70,7 +70,7 @@ const Header = (params) => {
               </ul>
               
         
-        {currentUser?<button onClick={()=>{signOut(auth)}} className="btn btn-outline-success biolink__button-primary" >Logout</button>:<Link to="/login" className="btn btn-outline-success biolink__button-primary" >Login</Link>}
+        {currentUser?<Link to="/dashboard" className="btn btn-outline-success biolink__button-primary" >Dashboard</Link>:<Link to="/login" className="btn btn-outline-success biolink__button-primary" >Login</Link>}
  
             </div>
           </div>
