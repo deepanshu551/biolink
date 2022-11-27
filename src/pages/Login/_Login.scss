@@ -12,6 +12,9 @@
             width: 400px;
             height: 700px;
             border-radius: 10px;
+            @media (max-width: 426px) {
+                margin: 0;
+            }
         }
         &__header {
             text-align: center;
@@ -31,10 +34,13 @@
             width: 80%;
             margin: auto;
             &--forgot {
-                margin-top: 15px;
+                text-decoration: none;
                 color: $biolink-primary;
                 font-weight: 500;
             }
+        }
+        p {
+            margin-top: 10px;
         }
     }
 }

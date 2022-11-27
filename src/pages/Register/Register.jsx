@@ -4,6 +4,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {Link,useHistory} from "react-router-dom";
 import {auth} from "../../base";
+import toast from "react-hot-toast"
 import {createUserWithEmailAndPassword,updateProfile} from "firebase/auth"
 export default function Register() {
 
@@ -35,12 +36,15 @@ else{
     updateProfile(user,{
         displayName:userName
     })
-    console.log(user)
+    
+    toast.success(`Welcome BioLink`)
+    history.push("/")
     setSubmitDisable(false);
   }).catch(err=>{
     console.log(err);
     setSubmitDisable(false);
-    setErrorMsg(err.message)
+    setErrorMsg(err.message);
+
   })
 }
   }
