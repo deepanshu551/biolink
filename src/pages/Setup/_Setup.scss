@@ -1,0 +1,29 @@
+.biolink {
+    &-setup {
+        background-color: $biolink-secondary;
+        &__container {
+            border: 2px solid red;
+            height: 100vh;
+        }
+        &__brand {
+            padding: 0 50px;
+        }
+        &__main {
+            display: flex;
+        }
+        &__edit {
+            padding: 50px 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            &-head {}
+            &-main {
+                margin-top: 50px;
+                padding: 20px 50px;
+            }
+        }
+        &__display {
+            flex: 1
+        }
+    }
+}

@@ -388,6 +388,33 @@ a:-webkit-any-link:focus-visible {
   }
 }
 
+.biolink-setup {
+  background-color: rgb(252, 251, 248);
+}
+.biolink-setup__container {
+  border: 2px solid red;
+  height: 100vh;
+}
+.biolink-setup__brand {
+  padding: 0 50px;
+}
+.biolink-setup__main {
+  display: flex;
+}
+.biolink-setup__edit {
+  padding: 50px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.biolink-setup__edit-main {
+  margin-top: 50px;
+  padding: 20px 50px;
+}
+.biolink-setup__display {
+  flex: 1;
+}
+
 .biolink-login {
   display: flex;
   justify-content: center;
