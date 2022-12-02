@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 a:-webkit-any-link:focus-visible {
@@ -104,6 +105,29 @@ a:-webkit-any-link:focus-visible {
   background-color: rgb(241, 104, 76);
   color: #fff;
   border-color: #fff;
+}
+
+.biolink-google-signin {
+  background-color: white;
+  color: black;
+  border: 1px solid #ced4da;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-top: 0;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+.biolink-google-signin svg {
+  margin-left: 20px;
+}
+.biolink-google-signin span {
+  font-size: 18px;
+}
+.biolink-google-signin:hover {
+  background-color: rgb(224, 222, 222);
+  color: black;
+  border: 1px solid #b4b6b8;
 }
 
 .biolink-header--modifier {
@@ -388,6 +412,27 @@ a:-webkit-any-link:focus-visible {
   }
 }
 
+.biolink-or {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  padding: 24px 15px;
+}
+.biolink-or span {
+  padding: 0 5px;
+}
+.biolink-or::before, .biolink-or::after {
+  content: "";
+  border-bottom: 2px solid rgb(166, 164, 164);
+  flex: 1 0 auto;
+  height: 0.5rem;
+  margin: 0;
+}
 .biolink-login {
   display: flex;
   justify-content: center;
@@ -402,7 +447,7 @@ a:-webkit-any-link:focus-visible {
   background: white;
   margin: 50px 0;
   width: 400px;
-  height: 700px;
+  height: 800px;
   border-radius: 10px;
 }
 @media (max-width: 426px) {
