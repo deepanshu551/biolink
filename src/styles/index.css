@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Grotesk:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -104,6 +105,49 @@ a:-webkit-any-link:focus-visible {
   background-color: rgb(241, 104, 76);
   color: #fff;
   border-color: #fff;
+}
+
+.biolink-progressCont {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  box-shadow: 0 7px 21px -8px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  padding: 20px;
+  bottom: 20px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 30px;
+  width: 40%;
+}
+@media (max-width: 769px) {
+  .biolink-progressCont {
+    width: 90%;
+  }
+}
+.biolink-progressCont progress {
+  height: 30px;
+  color: red;
+}
+.biolink-progressCont-btn1 {
+  padding: 0.5rem 1rem;
+  background: rgb(245, 243, 255);
+  border: none;
+  color: black;
+  width: auto;
+  margin: 0;
+}
+.biolink-progressCont-btn1:hover {
+  background: rgb(224, 219, 248);
+  color: black;
+}
+.biolink-progressCont-btn2 {
+  width: auto;
+  padding: 0.5rem 1rem;
+  background: rgb(241, 104, 76);
+  border: none;
+  margin: 0;
+  color: white;
 }
 
 .biolink-header--modifier {
@@ -389,10 +433,10 @@ a:-webkit-any-link:focus-visible {
 }
 
 .biolink-setup {
+  font-family: "Space Grotesk", sans-serif;
   background-color: rgb(252, 251, 248);
 }
 .biolink-setup__container {
-  border: 2px solid red;
   height: 100vh;
 }
 .biolink-setup__brand {
@@ -406,13 +450,116 @@ a:-webkit-any-link:focus-visible {
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
-.biolink-setup__edit-main {
+.biolink-setup__edit-head a {
+  margin-left: 40px;
+}
+.biolink-setup__edit-main-container {
   margin-top: 50px;
   padding: 20px 50px;
+  overflow-y: auto;
+}
+@media (max-width: 769px) {
+  .biolink-setup__edit-main-container {
+    padding: 20px 20px;
+  }
+}
+.biolink-setup__edit-main-data {
+  display: flex;
+  flex-direction: column;
+}
+.biolink-setup__edit-main-data img {
+  width: 150px;
+}
+.biolink-setup__edit-main-data h2 {
+  font-weight: bold;
+  font-size: 48px;
+}
+.biolink-setup__edit-main-data p {
+  width: 80%;
+}
+.biolink-setup__edit-main-data button {
+  width: 25%;
+  padding: 10px 0;
+}
+@media (max-width: 769px) {
+  .biolink-setup__edit-main-data button {
+    width: 100%;
+  }
+}
+.biolink-setup__edit-main-dashboard h2 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  color: rgb(241, 104, 76);
+}
+.biolink-setup__display-imgCont {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 769px) {
+  .biolink-setup__display-imgCont {
+    justify-content: center;
+  }
+}
+.biolink-setup__display-imgCont1 {
+  width: 33.33%;
+}
+@media (max-width: 769px) {
+  .biolink-setup__display-imgCont1 {
+    width: 50%;
+  }
+}
+.biolink-setup__display-imgCont1 img {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.biolink-setup__display-imgCont1 img:last-child {
+  margin-left: 30px;
+}
+.biolink-setup__display-imgCont1 .img-outline {
+  outline-color: red;
+  outline-offset: 4px;
+  outline-style: dotted;
+  outline-width: 2px;
+  border-radius: 0.5rem;
+}
+.biolink-setup__display-imgCont2 {
+  width: 33.33%;
+}
+@media (max-width: 769px) {
+  .biolink-setup__display-imgCont2 {
+    width: 50%;
+  }
+}
+.biolink-setup__display-imgCont2 img {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.biolink-setup__display-imgCont2 img:last-child {
+  margin-left: 30px;
+}
+.biolink-setup__display-imgCont2 .img-outline {
+  outline-color: red;
+  outline-offset: 4px;
+  outline-style: dotted;
+  outline-width: 2px;
+  border-radius: 0.5rem;
 }
 .biolink-setup__display {
   flex: 1;
+  height: 100vh;
+  background-image: url("../assets/background-image.jpg");
+}
+@media (max-width: 769px) {
+  .biolink-setup__display {
+    display: none;
+  }
 }
 
 .biolink-login {

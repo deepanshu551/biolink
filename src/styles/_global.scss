@@ -81,3 +81,44 @@
         border-color: $biolink-white;
     }
 }
+
+.biolink-progressCont {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    box-shadow: 0 7px 21px -8px rgb(0 0 0 / 30%);
+    position: fixed;
+    padding: 20px;
+    bottom: 20px;
+    border-radius: 10px;
+    align-items: center;
+    gap: 30px;
+    width: 40%;
+    @media (max-width: 769px) {
+        width: 90%;
+    }
+    progress {
+        height: 30px;
+        color: red;
+    }
+    &-btn1 {
+        padding: 0.5rem 1rem;
+        background: rgb(245 243 255);
+        border: none;
+        color: black;
+        width: auto;
+        margin: 0;
+        &:hover {
+            background: rgb(224, 219, 248);
+            color: black;
+        }
+    }
+    &-btn2 {
+        width: auto;
+        padding: 0.5rem 1rem;
+        background: $biolink-primary;
+        border: none;
+        margin: 0;
+        color: white;
+    }
+}
