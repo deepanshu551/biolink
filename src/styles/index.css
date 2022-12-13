@@ -150,6 +150,54 @@ a:-webkit-any-link:focus-visible {
   color: white;
 }
 
+.biolink-or {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  padding: 24px 15px;
+}
+.biolink-or span {
+  padding: 0 5px;
+}
+.biolink-or::before, .biolink-or::after {
+  content: "";
+  border-bottom: 2px solid rgba(166, 164, 164, 0.199);
+  flex: 1 0 auto;
+  height: 0.5rem;
+  margin: 0;
+}
+
+.biolink-input p {
+  margin-bottom: 5px;
+}
+.biolink-input label {
+  color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, #feab2f, #ce64b7) border-box;
+  border: 2px solid transparent;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+}
+.biolink-input label input {
+  color: #000;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 50%;
+  flex: 1;
+  font-size: 1rem;
+}
+.biolink-input label span svg {
+  margin-right: 10px;
+}
+
 .biolink-header--modifier {
   background-color: #fff;
   height: 5rem;
@@ -493,6 +541,9 @@ a:-webkit-any-link:focus-visible {
   line-height: 2.5rem;
   font-weight: 500;
   color: rgb(241, 104, 76);
+}
+.biolink-setup__display-socialHandles {
+  margin-bottom: 50px;
 }
 .biolink-setup__display-imgCont {
   display: flex;

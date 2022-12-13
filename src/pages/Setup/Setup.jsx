@@ -1,29 +1,14 @@
-import React, { useState } from 'react'
-import dashboard1 from '../../assets/onboarding-page-style-1.svg'
-import dashboard2 from '../../assets/onboarding-page-style-2.svg'
+import React, { useState,useReducer } from 'react'
+
+import SetupTemplate from './SetupTemplate';
 
 export default function Setup () {
   const [dashboardOn, setDashboardOn] = useState(false);
-  const [active, setActive] = useState(1);
-  const [progressComp,setProgressComp]=useState(20);
+ 
   const startButton = () => {
     setDashboardOn(true)
   }
-  const selectImage = e => {
-    setActive(e.target.id)
-  }
-  const btnBack=()=>{
 
-    if(progressComp!=20){
-      setProgressComp(progressComp-20)
-    }
-   
-  }
-  const btnNext=()=>{
-    if(progressComp!=100){
-    setProgressComp(progressComp+20)
-  }
-}
   return (
     <div className='biolink-setup'>
       <div className='biolink-setup__container'>
@@ -75,44 +60,15 @@ export default function Setup () {
                     Let's start
                   </button>
                 </div>
-              ) : (<div style={{position:"relative"}}><div className='biolink-setup__edit-main-dashboard'>
-                  <h2>Choose your style</h2>
-                  <p>
-                    Choose a style that best represents you. You can always
-                    change it later.
-                  </p>
-                  <div className='biolink-setup__display-imgCont'>
-                    <div className='biolink-setup__display-imgCont1'>
-                      <img
-                        id='1'
-                        className={active == 1 && 'img-outline'}
-                        src={dashboard1}
-                        alt='dashboard1'
-                        onClick={e => selectImage(e)}
-                      />
-                      <p>
-                        Focusing on your content and making it easy to navigate.
-                        This style is great for personal profiles.
-                      </p>
-                    </div>
-                    <div className='biolink-setup__display-imgCont2'>
-                      <img
-                        id='2'
-                        className={active == 2 && 'img-outline'}
-                        src={dashboard2}
-                        alt='dashboard2'
-                        onClick={e => selectImage(e)}
-                      />
-                      <p>
-                        This style is great for brands. It focuses on your brand
-                        and highlights your content.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="biolink-progressCont"><button className='btn biolink-button biolink-progressCont-btn1' onClick={btnBack}>Back</button><progress max={100} value={progressComp}></progress><button className='btn biolink-button biolink-progressCont-btn2' onClick={btnNext}>Next</button></div>
-                </div>
+              ) : (
+                // <SetupTemplate title="Choose your style" subHead="Choose a style that best represents you. You can always
+                // change it later." cont="style"/>
+                // <SetupTemplate title="Your social media handles" subHead="Share your social media accounts on your bio link to help people find you on other platforms." cont="socialHandles"/>
+                // <SetupTemplate title="Add a custom link (optional)" subHead="Add a custom link to your bio link to help people find you on other platforms." cont="customLink"/>
+                // <SetupTemplate title="One last thing" subHead="It's time to choose a username for your bio link. This will be the link that people will use to find you." cont="last"/>
+
 )}
+
                
             </div>
           </div>
