@@ -5,7 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 export default function SetupTemplate (props) {
   const [active, setActive] = useState(1)
-  const [progressComp, setProgressComp] = useState(20)
+  const [progressComp, setProgressComp] = useState(25)
 
   const temp = () => {
     if (props.cont === 'style') {
@@ -128,13 +128,18 @@ return (
     setActive(e.target.id)
   }
   const btnBack = () => {
-    if (progressComp != 20) {
-      setProgressComp(progressComp - 20)
+    if (progressComp != 25) {
+      setProgressComp(progressComp - 25)
+      props.pro(props.tem-1)
+    }
+    else{
+        props.dash(false)
     }
   }
   const btnNext = () => {
     if (progressComp != 100) {
-      setProgressComp(progressComp + 20)
+      setProgressComp(progressComp + 25)
+      props.pro(props.tem+1)
     }
   }
   return (

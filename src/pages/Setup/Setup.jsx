@@ -4,11 +4,28 @@ import SetupTemplate from './SetupTemplate';
 
 export default function Setup () {
   const [dashboardOn, setDashboardOn] = useState(false);
- 
+  const [tem,setTem]=useState(1)
   const startButton = () => {
     setDashboardOn(true)
   }
+const temp=()=>{
 
+  if(tem==1){
+return (<SetupTemplate title="Choose your style" subHead="Choose a style that best represents you. You can always
+change it later." cont="style" pro={(t)=>setTem(t)} tem={tem} dash={(t)=>setDashboardOn(t)}/>)
+  }
+  if(tem==2){
+    return (
+      <SetupTemplate title="Your social media handles" subHead="Share your social media accounts on your bio link to help people find you on other platforms." cont="socialHandles" pro={(t)=>setTem(t)} tem={tem}/>
+    )
+  }
+  if(tem==3){
+   return (<SetupTemplate title="Add a custom link (optional)" subHead="Add a custom link to your bio link to help people find you on other platforms." cont="customLink" pro={(t)=>setTem(t)} tem={tem}/>)
+  }
+  if(tem==4){
+return (<SetupTemplate title="One last thing" subHead="It's time to choose a username for your bio link. This will be the link that people will use to find you." cont="last" pro={(t)=>setTem(t)} tem={tem} />)
+  }
+}
   return (
     <div className='biolink-setup'>
       <div className='biolink-setup__container'>
@@ -60,14 +77,7 @@ export default function Setup () {
                     Let's start
                   </button>
                 </div>
-              ) : (
-                // <SetupTemplate title="Choose your style" subHead="Choose a style that best represents you. You can always
-                // change it later." cont="style"/>
-                // <SetupTemplate title="Your social media handles" subHead="Share your social media accounts on your bio link to help people find you on other platforms." cont="socialHandles"/>
-                // <SetupTemplate title="Add a custom link (optional)" subHead="Add a custom link to your bio link to help people find you on other platforms." cont="customLink"/>
-                // <SetupTemplate title="One last thing" subHead="It's time to choose a username for your bio link. This will be the link that people will use to find you." cont="last"/>
-
-)}
+              ) : temp()}
 
                
             </div>
