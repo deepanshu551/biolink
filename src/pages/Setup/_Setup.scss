@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+.biolink {
+    &-setup {
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: $biolink-secondary;
+        &__container {
+            height: 100vh;
+        }
+        &__brand {
+            padding: 0 50px;
+        }
+        &__main {
+            display: flex;
+        }
+        &__edit {
+            padding: 50px 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            &-head {
+                a {
+                    margin-left: 40px;
+                }
+            }
+            &-main-container {
+                margin-top: 50px;
+                padding: 20px 50px;
+                overflow-y: auto;
+                @media (max-width: 769px) {
+                    padding: 20px 20px;
+                }
+            }
+            &-main-data {
+                display: flex;
+                flex-direction: column;
+                img {
+                    width: 150px;
+                }
+                h2 {
+                    font-weight: bold;
+                    font-size: 48px;
+                }
+                p {
+                    width: 80%;
+                }
+                button {
+                    width: 25%;
+                    padding: 10px 0;
+                    @media (max-width: 769px) {
+                        width: 100%;
+                    }
+                }
+            }
+            &-main-dashboard {
+                h2 {
+                    font-size: 2.25rem;
+                    line-height: 2.5rem;
+                    font-weight: 500;
+                    color: $biolink-primary;
+                }
+            }
+        }
+        &__display-socialHandles {
+            margin-bottom: 50px;
+        }
+        &__display-imgCont {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            color: rgba(0, 0, 0, 0.5);
+            @media (max-width: 769px) {
+                justify-content: center;
+            }
+            &1 {
+                width: 33.33%;
+                @media (max-width: 769px) {
+                    width: 50%;
+                }
+                img {
+                    width: 100%;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                }
+                img:last-child {
+                    margin-left: 30px;
+                }
+                .img-outline {
+                    outline-color: red;
+                    outline-offset: 4px;
+                    outline-style: dotted;
+                    outline-width: 2px;
+                    border-radius: 0.5rem;
+                }
+            }
+            &2 {
+                width: 33.33%;
+                @media (max-width: 769px) {
+                    width: 50%;
+                }
+                img {
+                    width: 100%;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                }
+                img:last-child {
+                    margin-left: 30px;
+                }
+                .img-outline {
+                    outline-color: red;
+                    outline-offset: 4px;
+                    outline-style: dotted;
+                    outline-width: 2px;
+                    border-radius: 0.5rem;
+                }
+            }
+        }
+        &__display {
+            flex: 1;
+            height: 100vh;
+            background-image: url("../assets/background-image.jpg");
+            @media (max-width: 769px) {
+                display: none;
+            }
+        }
+    }
+}
