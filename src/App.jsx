@@ -31,10 +31,8 @@ const App=()=> {
        <div>
 
         <Router>
-        <Switch>
-            
+        <Switch>    
             <PrivateRoute exact path="/" component={Home}></PrivateRoute>
-           
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/forgot" component={Forgot}></Route>
