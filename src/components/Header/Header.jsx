@@ -1,13 +1,13 @@
 import React ,{useContext} from 'react';
 import {Link} from "react-router-dom"
 import '../../styles/index.css'
-import {AuthContext} from "../../Auth.js"
+import {useSelector} from "react-redux"
 import {signOut} from "firebase/auth"
 import {auth} from "../../base.js"
 const Header = (params) => {
-  const {currentUser}=useContext(AuthContext);
+   const {user}=useSelector(state=>state);
 
-  // useEffect(()=>{},[currentUser])
+ 
   return (
     <header className='biolink-header'>
       <div className='biolink__container'>
@@ -70,7 +70,7 @@ const Header = (params) => {
               </ul>
               
         
-        {currentUser?<button onClick={()=>{signOut(auth)}} className="btn btn-outline-success biolink__button-primary" >Logout</button>:<Link to="/login" className="btn btn-outline-success biolink__button-primary" >Login</Link>}
+        {user?<button onClick={()=>{signOut(auth)}} className="btn btn-outline-success biolink__button-primary" >Logout</button>:<Link to="/login" className="btn btn-outline-success biolink__button-primary" >Login</Link>}
  
             </div>
           </div>
