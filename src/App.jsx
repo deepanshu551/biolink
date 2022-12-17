@@ -7,8 +7,9 @@ import PrivateRoute from "./PrivateRoute"
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Forgot from "./pages/Forgot/Forgot";
-import {Toaster} from "react-hot-toast";
+import Setup from "./pages/Setup/Setup";
 
+import {Toaster} from "react-hot-toast"
 const App=()=> {
     return (
         <AuthProvider>
@@ -18,7 +19,9 @@ const App=()=> {
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/forgot" component={Forgot}></Route>
+            <Route exact path="/setup" component={Setup}></Route>
             <Route exact path="/**" component={Error}></Route>
+            
            
         </Switch>
         </Router>
