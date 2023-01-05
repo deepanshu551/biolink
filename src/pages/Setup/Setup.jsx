@@ -1,13 +1,32 @@
-import React, { useState,useReducer } from 'react'
+import React, { useState,useEffect } from 'react'
 
 import SetupTemplate from './SetupTemplate';
-
+import { db } from '../../base'
+import {  ref, child, get } from "firebase/database";
+import {useSelector } from "react-redux";
 export default function Setup () {
   const [dashboardOn, setDashboardOn] = useState(false);
-  const [tem,setTem]=useState(1)
+  const [tem,setTem]=useState(1);
+  const {user}=useSelector(state=>state);
+  
   const startButton = () => {
     setDashboardOn(true)
   }
+  useEffect(()=>{
+    console.log(user)
+// const dbRef = ref(db);
+// console.log(dbRef)
+// get(child(dbRef, `/${currentuser.uid}`)).then((snapshot) => {
+//   if (snapshot.exists()) {
+//     console.log(snapshot.val());
+//   } else {
+//     console.log("No data available");
+//   }
+// }).catch((error) => {
+//   console.error(error);
+// });
+          
+  },[])
 const temp=()=>{
 
   if(tem==1){

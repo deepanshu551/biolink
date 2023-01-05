@@ -1,25 +1,51 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import {BrowserRouter as Router,Route,Switch,Link} from "react-router-dom";
-
+// import {Route} from "react-router";
+import {useSelector,useDispatch} from "react-redux"
 import Home from "./pages/Home";
-import {AuthProvider} from "./Auth"
 import PrivateRoute from "./PrivateRoute"
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Forgot from "./pages/Forgot/Forgot";
 import Setup from "./pages/Setup/Setup";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
-import {Toaster} from "react-hot-toast"
+import {loginUser} from './redux/action/UserAction'
+import { auth,db } from './base'
+import {  ref, child, get } from "firebase/database";
+import { onAuthStateChanged } from 'firebase/auth';
+import {Toaster} from "react-hot-toast";
 const App=()=> {
+    const [user,setUser] = useState({});
+    const dispatch = useDispatch()
+    const {data}=useSelector(state=>state.data);
+    const [myData,setMyData]=useState({});
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentuser => {
+         
+          if(currentuser)
+          {
+            dispatch(loginUser(currentuser))
+          }
+        })
+        return () => {
+          unsubscribe()
+        }
+      }, [])
+
+      
     return (
-        <AuthProvider>
+
+       <div>
+
         <Router>
         <Switch>    
-            <PrivateRoute exact path="/" component={Home}></PrivateRoute>
+            <Route exact path="/" component={Home}></Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/forgot" component={Forgot}></Route>
-            <Route exact path="/setup" component={Setup}></Route>
+            <Route exact path="/app" component={Dashboard}></Route>
+            <PrivateRoute exact path="/setup" component={Setup}></PrivateRoute>
             <Route exact path="/**" component={Error}></Route>
             
            
@@ -27,7 +53,7 @@ const App=()=> {
         </Router>
            
 <Toaster/>
-        </AuthProvider>
+        </div>
     )
 }
 

@@ -1,18 +1,24 @@
 import React ,{useContext} from 'react';
 import {Link} from "react-router-dom"
 import '../../styles/index.css'
-import {AuthContext} from "../../Auth.js"
+import {useSelector,useDispatch} from "react-redux"
 import {signOut} from "firebase/auth"
 import {auth} from "../../base.js"
+import {logoutUser} from "../../redux/action/UserAction";
 const Header = (params) => {
-  const {currentUser}=useContext(AuthContext);
-
-  // useEffect(()=>{},[currentUser])
+   const {user}=useSelector(state=>state.user);
+   console.log("header",user)
+const dispatch=useDispatch();
+   const signoutBtn=()=>{
+    signOut(auth);
+dispatch(logoutUser())
+   }
+ 
   return (
     <header className='biolink-header'>
       <div className='biolink__container'>
         <nav className='navbar navbar-expand-lg biolink-header--modifier'>
-          <div className='container-fluid biolink--gap'>
+          <div className='container-fluid '>
             <a className='navbar-brand' href='#'>
               <span className='biolink-header__brand'>
                 <svg
@@ -40,10 +46,10 @@ const Header = (params) => {
               </span>
             </a>
             <button
-              className='navbar-toggler'
+              className='navbar-toggler mx-2'
               type='button'
-              data-bs-toggle='collapse'
-              data-bs-target='#navbarNav'
+              data-toggle='collapse'
+              data-target='#navbarNav'
               aria-controls='navbarNav'
               aria-expanded='false'
               aria-label='Toggle navigation'
@@ -51,7 +57,7 @@ const Header = (params) => {
               <span className='navbar-toggler-icon'></span>
             </button>
             <div className='collapse navbar-collapse biolink-header__links--modifier' id='navbarNav'>
-              <ul className='navbar-nav'>
+              <ul className='navbar-nav ms-auto'>
                 <li className='nav-item'>
                   <a className='nav-link biolink-header__link--modifier' aria-current='page' href='#'>
                     Pricing
@@ -67,10 +73,13 @@ const Header = (params) => {
                     How It Works
                   </a>
                 </li>
+                <li className="nav-item biolink-header__link--modifier">
+                        
+        {user?<Link to="/setup" className="btn biolink__button-primary--inverse ">Setup</Link>:<Link to="/login" className="btn btn-outline-success biolink__button-primary " >Login</Link>}
+                </li>
               </ul>
               
-        
-        {currentUser?<Link to="/dashboard" className="btn btn-outline-success biolink__button-primary" >Dashboard</Link>:<Link to="/login" className="btn btn-outline-success biolink__button-primary" >Login</Link>}
+  
  
             </div>
           </div>

@@ -80,6 +80,13 @@
         color: $biolink-white;
         border-color: $biolink-white;
     }
+    &--inverse {
+        background-color: $biolink-primary;
+        color: white;
+        &:hover {
+            background-color: rgb(249, 134, 111);
+        }
+    }
 }
 
 .biolink-progressCont {
