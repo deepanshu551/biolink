@@ -1,13 +1,20 @@
-import { LOGINUSER } from "./type";
+import { LOGINUSER, LOGOUT } from "./type";
 
 
 const loginUser = (user) => {
-    console.log("user", user)
+
     return {
         type: LOGINUSER,
         payload: user
     }
 }
 
+const logoutUser = () => {
+    console.log("user logout")
 
-export { loginUser }
+    return { type: LOGOUT }
+
+}
+
+
+export { loginUser, logoutUser }

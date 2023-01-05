@@ -1,4 +1,4 @@
-import { LOGINUSER } from "../action/type";
+import { LOGINUSER, LOGOUT } from "../action/type";
 
 const initialState = { user: null }
 
@@ -7,12 +7,16 @@ const userReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case LOGINUSER:
-            console.log("reducer", action.payload)
-            return action.payload
+            return {...state, user: action.payload }
+
+        case LOGOUT:
+            return {...state, user: null }
 
         default:
             return state
     }
+
+
 }
 
 export default userReducer

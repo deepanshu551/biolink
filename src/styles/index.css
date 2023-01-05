@@ -107,6 +107,13 @@ a:-webkit-any-link:focus-visible {
   color: #fff;
   border-color: #fff;
 }
+.biolink__button-primary--inverse {
+  background-color: rgb(241, 104, 76);
+  color: white;
+}
+.biolink__button-primary--inverse:hover {
+  background-color: rgb(249, 134, 111);
+}
 
 .biolink-progressCont {
   display: flex;
@@ -222,12 +229,6 @@ a:-webkit-any-link:focus-visible {
   border: 1px solid #b4b6b8;
 }
 
-.biolink-header--modifier {
-  background-color: #fff;
-  height: 5rem;
-  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.22);
-  gap: 30px;
-}
 .biolink-header__links--modifier {
   justify-content: space-between;
 }

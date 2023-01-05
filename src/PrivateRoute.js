@@ -4,15 +4,14 @@ import { Route, Redirect } from 'react-router-dom'
 // import { AuthContext } from './Auth'
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-    const { user } = useSelector(state => state);
-    console.log(user)
+    const { user } = useSelector(state => state.user);
 
     console.log("hi", user)
     return ( <
         Route {...rest }
         render = {
             routeProps =>
-            !!user ? ( <
+            user !== null ? ( <
                 RouteComponent {...routeProps }
                 />
             ) : ( <
