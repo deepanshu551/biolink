@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import {BrowserRouter as Router,Route,Switch,Link} from "react-router-dom";
+import {Route,Switch,Link,useHistory} from "react-router-dom";
 // import {Route} from "react-router";
 import {useSelector,useDispatch} from "react-redux"
 import Home from "./pages/Home";
@@ -12,25 +12,43 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 
 import {loginUser} from './redux/action/UserAction'
 import { auth,db } from './base'
-import {  ref, child, get } from "firebase/database";
+import {  ref, child, get ,onValue} from "firebase/database";
 import { onAuthStateChanged } from 'firebase/auth';
 import {Toaster} from "react-hot-toast";
+
 const App=()=> {
     const [user,setUser] = useState({});
     const dispatch = useDispatch()
     const {data}=useSelector(state=>state.data);
-    const [myData,setMyData]=useState({});
+    const history=useHistory();
     useEffect(() => {
+
         const unsubscribe = onAuthStateChanged(auth, currentuser => {
          
           if(currentuser)
           {
             dispatch(loginUser(currentuser))
+            const query = ref(db, `Users/${currentuser.uid}`);
+            onValue(query, (snapshot) => {
+             const data = snapshot.val();
+            const keyName=snapshot.key
+             if(data===null){
+              
+              history.push("/setup")
+             }
+             else{
+              history.push("/app")
+             }
+           });
           }
+         
+
         })
         return () => {
           unsubscribe()
         }
+
+        
       }, [])
 
       
@@ -38,7 +56,7 @@ const App=()=> {
 
        <div>
 
-        <Router>
+    
         <Switch>    
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/login" component={Login}></Route>
@@ -50,7 +68,7 @@ const App=()=> {
             
            
         </Switch>
-        </Router>
+      
            
 <Toaster/>
         </div>

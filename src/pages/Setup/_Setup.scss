@@ -122,6 +122,10 @@
             @media (max-width: 769px) {
                 display: none;
             }
+            &-last,
+            &-customeLink {
+                margin-bottom: 50px;
+            }
         }
     }
 }
