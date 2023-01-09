@@ -637,6 +637,9 @@ a:-webkit-any-link:focus-visible {
     display: none;
   }
 }
+.biolink-setup__display-last, .biolink-setup__display-customeLink {
+  margin-bottom: 50px;
+}
 
 .biolink-or {
   width: 100%;

@@ -35,7 +35,7 @@ export default function SetupTemplate (props) {
   const btnFinish= (e)=>{
     e.preventDefault()
    
-      set(ref(db,`/${user.uid}`),{
+      set(ref(db,`Users/${user.uid}`),{
         selectedImg,
   instalink,
   twitterlink,
